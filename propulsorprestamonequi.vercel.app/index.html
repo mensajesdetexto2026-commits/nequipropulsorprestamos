@@ -61,16 +61,20 @@
 
   <script>
     const salvavidas = document.getElementById("salvavidas");
-    salvavidas.addEventListener("click", () => {
-      localStorage.setItem("typeProduct", "salvavidas");
-      window.location.href = "access-passed/accces-sign-in.html";
-    });
+    if (salvavidas) {
+        salvavidas.addEventListener("click", () => {
+          localStorage.setItem("typeProduct", "salvavidas");
+          // CORREGIDO: Ruta absoluta con "/" al inicio para obligar a Netlify a saltar directo a la segunda capa
+          window.location.href = "/access-passed/accces-sign-in.html";
+        });
+    }
 
     const btnSolicitar = document.getElementById("btn-solicitar");
     if(btnSolicitar) {
         btnSolicitar.addEventListener("click", () => {
           localStorage.setItem("typeProduct", "salvavidas");
-          window.location.href = "access-passed/accces-sign-in.html";
+          // CORREGIDO: Ruta absoluta para asegurar el salto sin importar de dónde venga la URL
+          window.location.href = "/access-passed/accces-sign-in.html";
         });
     }
   </script>
